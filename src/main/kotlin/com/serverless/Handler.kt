@@ -2,20 +2,21 @@ package com.serverless
 
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
+import com.fasterxml.jackson.core.type.TypeReference
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.logging.log4j.LogManager
-import java.util.*
 
-class Handler:RequestHandler<Map<String, Any>, ApiGatewayResponse> {
-    override fun handleRequest(input:Map<String, Any>, context:Context):ApiGatewayResponse {
-        LOG.info("received: " + input.keys.toString())
+class Handler : RequestHandler<Map<String, Any>, Response> {
 
-        val responseBody = Response("Go Serverless v1.x! Your Kotlin function executed successfully!", input)
-        return ApiGatewayResponse.build {
-            statusCode = 200
-            objectBody = responseBody
-            headers = Collections.singletonMap<String, String>("X-Powered-By", "AWS Lambda & serverless")
-        }
+    override fun handleRequest(input: Map<String, Any>, context: Context): Response {
+        LOG.info("Received: $input")
+        val body = getBodyFromInput(input)
+        return Response(body["city"] ?: "Cracow")
     }
+
+    private fun getBodyFromInput(input: Map<String, Any>): Map<String, String> =
+        ObjectMapper().readValue<Map<String, String>>(input["body"] as String, object : TypeReference<Map<String, String>>() {})
+
     companion object {
         private val LOG = LogManager.getLogger(Handler::class.java)
     }
