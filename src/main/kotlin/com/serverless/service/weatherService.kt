@@ -2,7 +2,6 @@ package com.serverless.service
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.serverless.WeatherConfiguration
 import khttp.responses.Response
 
 interface WeatherService {
@@ -28,7 +27,7 @@ class DefaultWeatherService(
         }
     }
 
-    private fun getApiUrl(city: String) = "https://api.openweathermap.org/data/2.5/weather?q=%CITY%&appid=%APIKEY%&units=metric"
+    private fun getApiUrl(city: String) = weatherConfiguration.apiUrl
         .replace("%CITY%", city)
         .replace("%APIKEY%", weatherConfiguration.apiKey)
 }
