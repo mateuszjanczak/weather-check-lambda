@@ -1,11 +1,11 @@
-package com.serverless
+package com.mateuszjanczak.weatherchecklambda
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.serverless.service.DefaultWeatherService
-import com.serverless.service.WeatherConfiguration
-import com.serverless.service.WeatherService
+import com.mateuszjanczak.weatherchecklambda.service.DefaultWeatherService
+import com.mateuszjanczak.weatherchecklambda.service.WeatherConfiguration
+import com.mateuszjanczak.weatherchecklambda.service.WeatherService
 
 class Bootstrap {
 

@@ -1,4 +1,4 @@
-package com.serverless.service
+package com.mateuszjanczak.weatherchecklambda.service
 
 data class Weather(
     val name: String,

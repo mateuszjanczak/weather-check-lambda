@@ -1,4 +1,4 @@
-package com.serverless.service
+package com.mateuszjanczak.weatherchecklambda.service
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper

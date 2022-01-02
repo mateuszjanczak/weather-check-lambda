@@ -1,10 +1,10 @@
-package com.serverless
+package com.mateuszjanczak.weatherchecklambda
 
 import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.serverless.service.WeatherService
+import com.mateuszjanczak.weatherchecklambda.service.WeatherService
 import org.apache.logging.log4j.LogManager
 
 class Handler(
