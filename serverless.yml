@@ -1,4 +1,4 @@
-service: weather-service
+service: weather-check-lambda
 
 frameworkVersion: '2'
 
@@ -14,7 +14,7 @@ provider:
     API_KEY: 749561a315b14523a8f5f1ef95e45864
 
 package:
-  artifact: target/weather-check-lambda-1.0.0.jar
+  artifact: target/weather-check-lambda.jar
 
 functions:
   hello:
